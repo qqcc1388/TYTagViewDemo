@@ -98,7 +98,7 @@
                 //换行后重新设置当前行的总宽度
                 rowWidth = tagWidth + margin;
             }
-            [tagItem mas_remakeConstraints:^(MASConstraintMaker *make) {
+            [tagItem mas_makeConstraints:^(MASConstraintMaker *make) {
                 if (isChange) {  //换行
                     if (!last) {
                         make.top.mas_offset(top);

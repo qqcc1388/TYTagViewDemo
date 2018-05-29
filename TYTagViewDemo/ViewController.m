@@ -15,7 +15,6 @@
 @property (nonatomic, strong) TYTagView *tagView;
 @property (nonatomic, strong) NSMutableArray *datas;
 
-
 @end
 
 @implementation ViewController
@@ -24,8 +23,13 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     
+    [self setupUI];
+
+}
+
+-(void)setupUI{
     [self prepareDatas];
-    
+
     //创建tagView
     TYTagView *tagView = [TYTagView new];
     self.tagView = tagView;
@@ -46,8 +50,9 @@
 }
 
 -(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
-    [self prepareDatas];
-    self.tagView.items = self.datas;
+    [self.tagView removeFromSuperview];
+
+    [self setupUI];
 }
 
 -(void)prepareDatas{
